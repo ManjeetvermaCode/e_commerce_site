@@ -1,4 +1,6 @@
-@extends('admin.main')
+{{-- @extends('admin.main') --}}
+@extends('layouts.app')
+
 
 @section('content')
 <h1>Dashboard</h1>

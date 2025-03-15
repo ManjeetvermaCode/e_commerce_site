@@ -1,4 +1,9 @@
-      <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+     <style>
+      li{
+        list-style-type: none;
+      }
+     </style>
+     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
@@ -23,10 +28,30 @@
                           Acl
                         </a>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Roles</a></li>
-                          <li><a class="dropdown-item" href="#">Permissions</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item" href="#">Users</a></li>
+                          <li><a class="dropdown-item">Roles</a>
+                            <ul>
+                              <li><a class="dropdown-item" href="{{route('roles.create')}}">Create</a></li>
+                              <li><a class="dropdown-item" href="{{route('roles.index')}}">List</a></li>
+                            </ul>
+                          </li>
+                          <li><a class="dropdown-item">Permissions</a>
+                            <ul>
+                              <li><a href="{{route('permissions.create')}}" class="dropdown-item">Create</a></li>
+                              <li><a href="{{route('permissions.index')}}" class="dropdown-item">List</a></li>
+                            </ul>
+                          </li>
+                          <li><a class="dropdown-item">User Role</a>
+                            <ul>
+                              <li><a href="#" class="dropdown-item">Assign User Role</a></li>
+                            </ul>
+                          </li>
+                          <li><a class="dropdown-item">Role Permissions</a>
+                            <ul>
+                              <li><a href="#" class="dropdown-item">Assign Role Permission</a></li>
+                            </ul>
+                          </li>
+                          {{-- <li><hr class="dropdown-divider"></li> --}}
+                          {{-- <li><a class="dropdown-item" href="#">Users</a></li> --}}
                         </ul>
                       </li>
                       <li class="nav-item dropdown">
@@ -89,4 +114,4 @@
             </div>
         </div>
     </nav>
-  
+ 

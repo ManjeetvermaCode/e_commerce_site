@@ -1,8 +1,9 @@
 {{-- @extends('admin.main') --}}
 @extends('layouts.app')
 
-
 @section('content')
+<x-alert-message type="{{session('type')}}" message="{{session('message')}}"></x-alert-message>
+
 <h1>Dashboard</h1>
     <p>This is my body content Lorem ipsum dolor, sit amet consectetur adipisicing elit. Suscipit, labore! Placeat possimus beatae iure, deleniti veniam cupiditate perferendis nemo optio nulla dolores consequatur quia ex non at distinctio labore quod? lorem&5
         . Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, debitis aliquid fuga dicta adipisci animi harum eius deleniti officiis recusandae, quasi hic aut provident perferendis dignissimos nemo! Tempora, magnam incidunt!

@@ -9,32 +9,37 @@
     @endif
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <div class="d-flex justify-content-end mb-3">
-                <a class="btn btn-primary" href="{{ route('roles.index') }}">List</a>
-            </div>
             <div class="card">
-                <div class="card-header">{{isset($role['role_slug']) ? 'Update' : 'Create'}} Role</div>
+                {{-- <div class="card-header">{{isset($role['role_slug']) ? 'Update' : 'Create'}} Role</div> --}}
+                <div class="card-header">Create User</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ isset($role['role_slug']) ? route('roles.update',encrypt($role['id'])) : route('roles.store') }}">
+                    <form method="POST" action="{{route('acl-users.store')}}">
                         @csrf
-                        @if (isset($role['role_slug']))
+                        {{-- @if (isset($role['role_slug']))
                             @method('patch')
-                        @endif
+                        @endif --}}
                         <div class="form-group mb-2">
-                          <label for="role_name">Role Name</label>
-                          <input type="text" class="form-control" id="role_name" name="role_name" value="{{old('role_name',$role['role_name'] ?? '')}}" placeholder="Role Name">
-                          @error('role_name')
+                          <label for="role_name">User Name</label>
+                          <input class="form-control" type="text" name="name" value="{{old('name')}}" id="name">
+                          @error('name')
                             <div class="error">{{ $message }}</div>
                           @enderror
                         </div>
                         <div class="form-group">
-                          <label for="role_slug">Slug Name</label>
-                          <input type="text" class="form-control" id="role_slug" name="role_slug" value="{{old('role_slug',$role['role_slug'] ?? '')}}" {{isset($role['role_slug']) ? 'disabled' : ''}} placeholder="Role Slug">
-                          @error('role_slug')
+                          <label for="role_slug">User Email</label>
+                            <input class="form-control" type="text" name="email" value="{{old('email')}}" id="email">
+                            @error('email')
                                 <div class="error">{{ $message }}</div>
-                            @enderror
+                            @enderror 
                         </div>
-                        <button class="btn btn-success mt-2" type="submit"> {{isset($role['role_slug']) ? 'Update' : 'Submit'}}</button>
+                        <div class="form-group">
+                            <label for="role_slug">Password</label>
+                              <input class="form-control" type="text" name="pass" id="pass" value="abcd1234" readonly>
+                              @error('pass')
+                                  <div class="error">{{ $message }}</div>
+                              @enderror
+                          </div>
+                        <button class="btn btn-success mt-2" type="submit">Submit</button>
                     </form>
                 </div>
             </div>

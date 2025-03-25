@@ -9,6 +9,9 @@
     @endif
     <div class="row justify-content-center">
         <div class="col-md-6">
+            <div class="d-flex justify-content-end mb-3">
+                <a class="btn btn-primary" href="{{ route('permissions.index') }}">List</a>
+            </div>
             <div class="card">
                 <div class="card-header">{{isset($permission['permission_slug']) ? 'Update' : 'Create'}} Permission</div>
                 <div class="card-body">

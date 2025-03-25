@@ -40,14 +40,20 @@
                               <li><a href="{{route('permissions.index')}}" class="dropdown-item">List</a></li>
                             </ul>
                           </li>
+                          <li><a class="dropdown-item">User</a>
+                            <ul>
+                              <li><a class="dropdown-item" href="{{route('acl-users.create')}}">Create</a></li>
+                              <li><a class="dropdown-item" href="{{route('acl-users.index')}}">List</a></li>
+                            </ul>
+                          </li>
                           <li><a class="dropdown-item">User Role</a>
                             <ul>
-                              <li><a href="#" class="dropdown-item">Assign User Role</a></li>
+                              <li><a href="{{route('user-role.create')}}" class="dropdown-item">Assign User Role</a></li>
                             </ul>
                           </li>
                           <li><a class="dropdown-item">Role Permissions</a>
                             <ul>
-                              <li><a href="#" class="dropdown-item">Assign Role Permission</a></li>
+                              <li><a href="{{route('role-permission.create')}}" class="dropdown-item">Assign Role Permission</a></li>
                             </ul>
                           </li>
                           {{-- <li><hr class="dropdown-divider"></li> --}}

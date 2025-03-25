@@ -16,24 +16,30 @@
               </tr>
             </thead>
             <tbody>
-                @foreach ($all_permissions as $key => $item)
-                <tr>
-                    <td  scope="row">{{$key+1}}</td>
-                    <td>{{$item['permission_name']}}</td>
-                    <td>{{$item['permission_slug']}}</td>
-                    <td style="display: flex">
-                        <form action="{{route('permissions.edit',encrypt($item['id']))}}" method="get">
-                            @csrf
-                            <button class="btn btn-info" style="margin-right: 5px">Edit</button>
-                        </form>
-                        <form action="{{route('permissions.update',encrypt($item['id']))}}" method="post">
-                            @csrf
-                            @method('delete')
-                            <button class="btn btn-danger">Delete</button>
-                        </form>
-                    </td>
-                </tr>
-                @endforeach
+               @if (isset($all_permissions) && $all_permissions->isNotEmpty())
+                    @foreach ($all_permissions as $key => $item)
+                    <tr>
+                        <td  scope="row">{{$key+1}}</td>
+                        <td>{{$item['permission_name']}}</td>
+                        <td>{{$item['permission_slug']}}</td>
+                        <td style="display: flex">
+                            <form action="{{route('permissions.edit',encrypt($item['id']))}}" method="get">
+                                @csrf
+                                <button class="btn btn-info" style="margin-right: 5px">Edit</button>
+                            </form>
+                            <form action="{{route('permissions.update',encrypt($item['id']))}}" method="post">
+                                @csrf
+                                @method('delete')
+                                <button class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endforeach
+               @else
+                    <tr>
+                        <td colspan="4" style="text-align: center">No Records Found</td>
+                    </tr>
+               @endif
             </tbody>
           </table>
     </div>
